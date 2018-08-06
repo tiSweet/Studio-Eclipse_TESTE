@@ -1,0 +1,1848 @@
+<%#include "tbiconn.ch"%> 
+<%#include "topconn.ch"%>  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Packing list</title>
+	<link href='css/bootstrap.css' rel='stylesheet'> 
+	<link href='CSS/Plugins/select2/select2.css' rel='stylesheet'>  	
+    <link href='CSS/Plugins/select2/select2-bootstrap.css' rel='stylesheet'>             
+</head>
+<body>
+<%  PREPARE ENVIRONMENT EMPRESA "01" FILIAL "01" MODULO "EEC"
+	private zz4_nembar, zz4_carreg, zz4_destin, zz4_client, zz4_descli, zz4_motori, zz4_fruta, zz4_desfru, zz4_cavalo
+	private zz4_carret, zz4_contai, zz4_genset, zz4_nlacre, zz4_ntermo, zz4_porto, zz4_ufemba, zz4_npterm, zz4_termper, zz4_dsaida, zz4_horas
+	private zz4_p1, zz4_t1, zz4_p2, zz4_t2, zz4_p3, zz4_t3, zz4_p4, zz4_t4, zz4_p5, zz4_t5, zz4_p6, zz4_t6, zz4_p7, zz4_t7, zz4_p8, zz4_t8, zz4_p9, zz4_t9, zz4_p10, zz4_t10
+	private zz4_p11, zz4_t11, zz4_p12, zz4_t12, zz4_p13, zz4_t13, zz4_p14, zz4_t14, zz4_p15, zz4_t15, zz4_p16, zz4_t16, zz4_p17, zz4_t17, zz4_p18, zz4_t18, zz4_p19, zz4_t19, zz4_p20, zz4_t20
+	private zz4_p21, zz4_t21, zz4_p22, zz4_t22, zz4_p23, zz4_t23, zz4_p24, zz4_t24, zz4_p25, zz4_t25, zz4_p26, zz4_t26, zz4_p27, zz4_t27, zz4_p28, zz4_t28, zz4_p29, zz4_t29, zz4_p30, zz4_t30
+	private zz4_p31, zz4_t31, zz4_p32, zz4_t32, zz4_p33, zz4_t33, zz4_p34, zz4_t34, zz4_p35, zz4_t35, zz4_p36, zz4_t36, zz4_p37, zz4_t37, zz4_p38, zz4_t38, zz4_p39, zz4_t39, zz4_p40, zz4_t40
+	private zz4_p41, zz4_t41, zz4_p42, zz4_t42, zz4_p43, zz4_t43, zz4_p44, zz4_t44, zz4_p45, zz4_t45, zz4_p46, zz4_t46, zz4_p47, zz4_t47, zz4_p48, zz4_t48, zz4_p49, zz4_t49, zz4_p50, zz4_t50
+	
+	zz4_nembar    := Alltrim(nembar)
+	zz4_carreg    := Alltrim(TIPEM)
+	zz4_destin    := ""
+	zz4_client    := ""
+	zz4_descli    := ""
+	zz4_motori    := ""
+	zz4_fruta     := ""
+	zz4_desfru    := ""
+	zz4_cavalo    := ""
+	zz4_carret    := ""
+	zz4_contai    := ""
+	zz4_genset    := ""
+	zz4_nlacre    := ""
+	zz4_ntermo    := ""
+	zz4_porto     := ""
+	zz4_ufemba    := ""
+	zz4_npterm    := ""
+	zz4_termper   := ""
+	zz4_dsaida    := ""
+	zz4_horas     := ""
+	zz4_p1        := ""
+	zz4_t1        := ""
+	zz4_p2        := ""
+	zz4_t2        := ""
+	zz4_p3        := ""
+	zz4_t3        := ""
+	zz4_p4        := ""
+	zz4_t4        := ""
+	zz4_p5        := ""
+	zz4_t5        := ""
+	zz4_p6        := ""
+	zz4_t6        := ""
+	zz4_p7        := ""
+	zz4_t7        := ""
+	zz4_p8        := ""
+	zz4_t8        := ""
+	zz4_p9        := ""
+	zz4_t9        := ""
+	zz4_p10       := ""
+	zz4_t10       := ""
+	zz4_p11       := ""
+	zz4_t11       := ""
+	zz4_p12       := ""
+	zz4_t12       := ""
+	zz4_p13       := ""
+	zz4_t13       := ""
+	zz4_p14       := ""
+	zz4_t14       := ""
+	zz4_p15       := ""
+	zz4_t15       := ""
+	zz4_p16       := ""
+	zz4_t16       := ""
+	zz4_p17       := ""
+	zz4_t17       := ""
+	zz4_p18       := ""
+	zz4_t18       := ""
+	zz4_p19       := ""
+	zz4_t19       := ""
+	zz4_p20       := ""
+	zz4_t20       := ""
+	zz4_p21       := ""
+	zz4_t21       := ""
+	zz4_p22       := ""
+	zz4_t22       := ""
+	zz4_p23      := ""
+	zz4_t23       := ""
+	zz4_p24       := ""
+	zz4_t24       := ""
+	zz4_p25       := ""
+	zz4_t25       := ""
+	zz4_p26       := ""
+	zz4_t26       := ""
+	zz4_p27       := ""
+	zz4_t27       := ""
+	zz4_p28       := ""
+	zz4_t28       := ""
+	zz4_p29       := ""
+	zz4_t29       := ""
+	zz4_p30       := ""
+	zz4_t30       := ""
+	zz4_p31       := ""
+	zz4_t31       := ""
+	zz4_p32       := ""
+	zz4_t32       := ""
+	zz4_p33       := ""
+	zz4_t33       := ""
+	zz4_p34       := ""
+	zz4_t34       := ""
+	zz4_p35       := ""
+	zz4_t35       := ""
+	zz4_p36       := ""
+	zz4_t36       := ""
+	zz4_p37       := ""
+	zz4_t37       := ""
+	zz4_p38       := ""
+	zz4_t38       := ""
+	zz4_p39       := ""
+	zz4_t39       := ""
+	zz4_p40       := ""
+	zz4_t40       := ""
+	zz4_p41       := ""
+	zz4_t41       := ""
+	zz4_p42       := ""
+	zz4_t42       := ""
+	zz4_p43      := ""
+	zz4_t43       := ""
+	zz4_p44       := ""
+	zz4_t44       := ""
+	zz4_p45       := ""
+	zz4_t45       := ""
+	zz4_p46       := ""
+	zz4_t46       := ""
+	zz4_p47       := ""
+	zz4_t47       := ""
+	zz4_p48       := ""
+	zz4_t48       := ""
+	zz4_p49       := ""
+	zz4_t49       := ""
+	zz4_p50       := ""
+	zz4_t50       := ""
+	
+	if nembar <> ''
+		cQuery:="select * from "+retSqlName("ZZ4")+" ZZ4 "
+		cQuery+="where ZZ4.ZZ4_NEMBAR = '" + zz4_nembar + "'"
+		cQuery+="  and ZZ4.ZZ4_CARREG = '" + zz4_carreg + "'"
+		cQuery+="  and ZZ4.D_E_L_E_T_ <> '*' "
+									
+		TCQUERY cQuery NEW ALIAS "XZ7"							       
+		dbselectarea("XZ7") 
+		
+		zz4_destin  := Alltrim(XZ7->ZZ4_DESTIN)
+		zz4_client  := Alltrim(XZ7->ZZ4_CLIENT)
+		zz4_descli  := Alltrim(XZ7->ZZ4_DESCLI)
+		zz4_motori  := Alltrim(XZ7->ZZ4_MOTORI)
+		zz4_fruta   := Alltrim(XZ7->ZZ4_FRUTA)
+		zz4_desfru  := Alltrim(XZ7->ZZ4_DESFRU)
+		zz4_cavalo  := Alltrim(XZ7->ZZ4_CAVALO)
+		zz4_carret  := Alltrim(XZ7->ZZ4_CARRET)
+		zz4_contai  := Alltrim(XZ7->ZZ4_CONTAI)
+		zz4_genset  := Alltrim(XZ7->ZZ4_GENSET)
+		zz4_nlacre  := Alltrim(XZ7->ZZ4_NLACRE)
+		zz4_ntermo  := Alltrim(XZ7->ZZ4_NTERMO)
+		zz4_porto   := Alltrim(XZ7->ZZ4_PORTO)
+		zz4_ufemba  := Alltrim(XZ7->ZZ4_UFEMBA)
+		zz4_npterm  := Alltrim(XZ7->ZZ4_NPTERM)
+		zz4_termper := Alltrim(XZ7->ZZ4_TEMPER)
+		zz4_dsaida  := Alltrim(XZ7->ZZ4_DSAIDA)
+		zz4_horas   := Alltrim(XZ7->ZZ4_HORAS)
+		zz4_p1      := Alltrim(XZ7->ZZ4_P1)
+		zz4_t1      := Alltrim(XZ7->ZZ4_T1)
+		zz4_p2      := Alltrim(XZ7->ZZ4_P2)
+		zz4_t2      := Alltrim(XZ7->ZZ4_T2)
+		zz4_p3      := Alltrim(XZ7->ZZ4_P3)
+		zz4_t3      := Alltrim(XZ7->ZZ4_T3)
+		zz4_p4      := Alltrim(XZ7->ZZ4_P4)
+		zz4_t4      := Alltrim(XZ7->ZZ4_T4)
+		zz4_p5      := Alltrim(XZ7->ZZ4_P5)
+		zz4_t5      := Alltrim(XZ7->ZZ4_T5)
+		zz4_p6      := Alltrim(XZ7->ZZ4_P6)
+		zz4_t6      := Alltrim(XZ7->ZZ4_T6)
+		zz4_p7      := Alltrim(XZ7->ZZ4_P7)
+		zz4_t7      := Alltrim(XZ7->ZZ4_T7)
+		zz4_p8      := Alltrim(XZ7->ZZ4_P8)
+		zz4_t8      := Alltrim(XZ7->ZZ4_T8)
+		zz4_p9      := Alltrim(XZ7->ZZ4_P9)
+		zz4_t9      := Alltrim(XZ7->ZZ4_T9)
+		zz4_p10     := Alltrim(XZ7->ZZ4_P10)
+		zz4_t10     := Alltrim(XZ7->ZZ4_T10)
+		zz4_p11     := Alltrim(XZ7->ZZ4_P11)
+		zz4_t11     := Alltrim(XZ7->ZZ4_T11)
+		zz4_p12     := Alltrim(XZ7->ZZ4_P12)
+		zz4_t12     := Alltrim(XZ7->ZZ4_T12)
+		zz4_p13     := Alltrim(XZ7->ZZ4_P13)
+		zz4_t13     := Alltrim(XZ7->ZZ4_T13)
+		zz4_p14     := Alltrim(XZ7->ZZ4_P14)
+		zz4_t14     := Alltrim(XZ7->ZZ4_T14)
+		zz4_p15     := Alltrim(XZ7->ZZ4_P15)
+		zz4_t15     := Alltrim(XZ7->ZZ4_T15)
+		zz4_p16     := Alltrim(XZ7->ZZ4_P16)
+		zz4_t16     := Alltrim(XZ7->ZZ4_T16)
+		zz4_p17     := Alltrim(XZ7->ZZ4_P17)
+		zz4_t17     := Alltrim(XZ7->ZZ4_T17)
+		zz4_p18     := Alltrim(XZ7->ZZ4_P18)
+		zz4_t18     := Alltrim(XZ7->ZZ4_T18)
+		zz4_p19     := Alltrim(XZ7->ZZ4_P19)
+		zz4_t19     := Alltrim(XZ7->ZZ4_T19)
+		zz4_p20     := Alltrim(XZ7->ZZ4_P20)
+		zz4_t20     := Alltrim(XZ7->ZZ4_T20)
+		zz4_p21     := Alltrim(XZ7->ZZ4_P21)
+		zz4_t21     := Alltrim(XZ7->ZZ4_T21)
+		zz4_p22     := Alltrim(XZ7->ZZ4_P22)
+		zz4_t22     := Alltrim(XZ7->ZZ4_T22)
+		zz4_p23     := Alltrim(XZ7->ZZ4_P23)
+		zz4_t23     := Alltrim(XZ7->ZZ4_T23)
+		zz4_p24     := Alltrim(XZ7->ZZ4_P24)
+		zz4_t24     := Alltrim(XZ7->ZZ4_T24)
+		zz4_p25     := Alltrim(XZ7->ZZ4_P25)
+		zz4_t25     := Alltrim(XZ7->ZZ4_T25)
+		zz4_p26     := Alltrim(XZ7->ZZ4_P26)
+		zz4_t26     := Alltrim(XZ7->ZZ4_T26)
+		zz4_p27     := Alltrim(XZ7->ZZ4_P27)
+		zz4_t27     := Alltrim(XZ7->ZZ4_T27)
+		zz4_p28     := Alltrim(XZ7->ZZ4_P28)
+		zz4_t28     := Alltrim(XZ7->ZZ4_T28)
+		zz4_p29     := Alltrim(XZ7->ZZ4_P29)
+		zz4_t29     := Alltrim(XZ7->ZZ4_T29)
+		zz4_p30     := Alltrim(XZ7->ZZ4_P30)
+		zz4_t30     := Alltrim(XZ7->ZZ4_T30)
+		zz4_p31     := Alltrim(XZ7->ZZ4_P31)
+		zz4_t31     := Alltrim(XZ7->ZZ4_T31)
+		zz4_p32     := Alltrim(XZ7->ZZ4_P32)
+		zz4_t32     := Alltrim(XZ7->ZZ4_T32)
+		zz4_p33     := Alltrim(XZ7->ZZ4_P33)
+		zz4_t33     := Alltrim(XZ7->ZZ4_T33)
+		zz4_p34     := Alltrim(XZ7->ZZ4_P34)
+		zz4_t34     := Alltrim(XZ7->ZZ4_T34)
+		zz4_p35     := Alltrim(XZ7->ZZ4_P35)
+		zz4_t35     := Alltrim(XZ7->ZZ4_T35)
+		zz4_p36     := Alltrim(XZ7->ZZ4_P36)
+		zz4_t36     := Alltrim(XZ7->ZZ4_T36)
+		zz4_p37     := Alltrim(XZ7->ZZ4_P37)
+		zz4_t37     := Alltrim(XZ7->ZZ4_T37)
+		zz4_p38     := Alltrim(XZ7->ZZ4_P38)
+		zz4_t38     := Alltrim(XZ7->ZZ4_T38)
+		zz4_p39     := Alltrim(XZ7->ZZ4_P39)
+		zz4_t39     := Alltrim(XZ7->ZZ4_T39)
+		zz4_p40     := Alltrim(XZ7->ZZ4_P40)
+		zz4_t40     := Alltrim(XZ7->ZZ4_T40)
+		zz4_p41     := Alltrim(XZ7->ZZ4_P41)
+		zz4_t41     := Alltrim(XZ7->ZZ4_T41)
+		zz4_p42     := Alltrim(XZ7->ZZ4_P42)
+		zz4_t42     := Alltrim(XZ7->ZZ4_T42)
+		zz4_p43     := Alltrim(XZ7->ZZ4_P43)
+		zz4_t43     := Alltrim(XZ7->ZZ4_T43)
+		zz4_p44     := Alltrim(XZ7->ZZ4_P44)
+		zz4_t44     := Alltrim(XZ7->ZZ4_T44)
+		zz4_p45     := Alltrim(XZ7->ZZ4_P45)
+		zz4_t45     := Alltrim(XZ7->ZZ4_T45)
+		zz4_p46     := Alltrim(XZ7->ZZ4_P46)
+		zz4_t46     := Alltrim(XZ7->ZZ4_T46)
+		zz4_p47     := Alltrim(XZ7->ZZ4_P47)
+		zz4_t47     := Alltrim(XZ7->ZZ4_T47)
+		zz4_p48     := Alltrim(XZ7->ZZ4_P48)
+		zz4_t48     := Alltrim(XZ7->ZZ4_T48)
+		zz4_p49     := Alltrim(XZ7->ZZ4_P49)
+		zz4_t49     := Alltrim(XZ7->ZZ4_T49)				
+		zz4_p50     := Alltrim(XZ7->ZZ4_P50)
+		zz4_t50     := Alltrim(XZ7->ZZ4_T50)
+		
+		IF (cZZ4_ERRO).OR.(cZZ8_ERRO) 
+			zz4_p1  := Alltrim(vZZ4_P1)
+			zz4_p2  := Alltrim(vZZ4_P2)
+			zz4_p3  := Alltrim(vZZ4_P3)
+			zz4_p4  := Alltrim(vZZ4_P4)
+			zz4_p5  := Alltrim(vZZ4_P5)
+			zz4_p6  := Alltrim(vZZ4_P6)
+			zz4_p7  := Alltrim(vZZ4_P7)
+			zz4_p8  := Alltrim(vZZ4_P8)
+			zz4_p9  := Alltrim(vZZ4_P9)
+			zz4_p10 := Alltrim(vZZ4_P10)
+			zz4_p11 := Alltrim(vZZ4_P11)
+			zz4_p12 := Alltrim(vZZ4_P12)
+			zz4_p13 := Alltrim(vZZ4_P13)
+			zz4_p14 := Alltrim(vZZ4_P14)
+			zz4_p15 := Alltrim(vZZ4_P15)
+			zz4_p16 := Alltrim(vZZ4_P16)
+			zz4_p17 := Alltrim(vZZ4_P17)
+			zz4_p18 := Alltrim(vZZ4_P18)
+			zz4_p19 := Alltrim(vZZ4_P19)
+			zz4_p20 := Alltrim(vZZ4_P20)
+			zz4_p21 := Alltrim(vZZ4_P21)
+			zz4_p22 := Alltrim(vZZ4_P22)
+			zz4_p23 := Alltrim(vZZ4_P23)
+			zz4_p24 := Alltrim(vZZ4_P24)
+			zz4_p25 := Alltrim(vZZ4_P25)
+			zz4_p26 := Alltrim(vZZ4_P26)
+			zz4_p27 := Alltrim(vZZ4_P27)
+			zz4_p28 := Alltrim(vZZ4_P28)
+			zz4_p29 := Alltrim(vZZ4_P29)
+			zz4_p30 := Alltrim(vZZ4_P30)
+			zz4_p31 := Alltrim(vZZ4_P31)
+			zz4_p32 := Alltrim(vZZ4_P32)
+			zz4_p33 := Alltrim(vZZ4_P33)
+			zz4_p34 := Alltrim(vZZ4_P34)
+			zz4_p35 := Alltrim(vZZ4_P35)
+			zz4_p36 := Alltrim(vZZ4_P36)
+			zz4_p37 := Alltrim(vZZ4_P37)
+			zz4_p38 := Alltrim(vZZ4_P38)
+			zz4_p39 := Alltrim(vZZ4_P39)
+			zz4_p40 := Alltrim(vZZ4_P40)
+			zz4_p41 := Alltrim(vZZ4_P41)
+			zz4_p42 := Alltrim(vZZ4_P42)
+			zz4_p43 := Alltrim(vZZ4_P43)
+			zz4_p44 := Alltrim(vZZ4_P44)
+			zz4_p45 := Alltrim(vZZ4_P45)
+			zz4_p46 := Alltrim(vZZ4_P46)
+			zz4_p47 := Alltrim(vZZ4_P47)
+			zz4_p48 := Alltrim(vZZ4_P48)
+			zz4_p49 := Alltrim(vZZ4_P49)
+			zz4_p50 := Alltrim(vZZ4_P50)
+			
+			vZZ4_P1      := ""
+			vZZ4_P2      := ""
+			vZZ4_P3      := ""
+			vZZ4_P4      := ""
+			vZZ4_P5      := ""
+			vZZ4_P6      := ""
+			vZZ4_P7      := ""
+			vZZ4_P8      := ""
+			vZZ4_P9      := ""
+			vZZ4_P10     := ""
+			vZZ4_P11     := ""
+			vZZ4_P12     := ""
+			vZZ4_P13     := ""
+			vZZ4_P14     := ""
+			vZZ4_P15     := ""
+			vZZ4_P16     := ""
+			vZZ4_P17     := ""
+			vZZ4_P18     := ""
+			vZZ4_P19     := ""
+			vZZ4_P20     := ""
+			vZZ4_P21      := ""
+			vZZ4_P22      := ""
+			vZZ4_P23      := ""
+			vZZ4_P24      := ""
+			vZZ4_P25      := ""
+			vZZ4_P26      := ""
+			vZZ4_P27      := ""
+			vZZ4_P28      := ""
+			vZZ4_P29      := ""
+			vZZ4_P30      := ""
+			vZZ4_P31      := ""
+			vZZ4_P32      := ""
+			vZZ4_P33      := ""
+			vZZ4_P34      := ""
+			vZZ4_P35      := ""
+			vZZ4_P36      := ""
+			vZZ4_P37      := ""
+			vZZ4_P38      := ""
+			vZZ4_P39      := ""
+			vZZ4_P40      := ""
+			vZZ4_P40      := ""
+			vZZ4_P41      := ""
+			vZZ4_P42      := ""
+			vZZ4_P43      := ""
+			vZZ4_P44      := ""
+			vZZ4_P45      := ""
+			vZZ4_P46      := ""
+			vZZ4_P47      := ""
+			vZZ4_P48      := ""
+			vZZ4_P49      := ""
+			vZZ4_P50      := ""
+			
+		ENDIF
+		
+		cZZ4_ERRO := .F.
+		cZZ8_ERRO := .F.
+		
+		XZ7->(DBSkip())
+		("XZ7")->(DBCloseArea())		
+	endif
+		  
+%>
+<div class="row">
+	<div class="col-lg-12">
+        <h2 class="page-header">Packing List </h2>        
+    </div>
+</div>
+			  <%  %> 
+			  <%= cMsg_erro %>
+			  <%  %>	
+ <div class="panel panel-default ">	
+   <div class="panel-body">
+     <form id="signupForm" method="POST" action="U_F002EXP.apw" class="form-horizontal">
+	 <div class="form-group">
+	      <label for="zz4_nembar" class="col-sm-1 control-label">N. Embarque</label>       
+          <div class="col-sm-2 zz4_nembar">
+            <input type="text" class="form-control" name="zz4_nembar" id="zz4_nembar"  maxlength="10" value="<%= Alltrim(zz4_nembar)%>">
+          </div>          
+          <label for="zz4_carreg" class="col-sm-2 control-label">Carregamento</label>
+          <div class="col-sm-2 zz4_carreg">
+            <select class="form-control" id="zz4_carreg" name="zz4_carreg">
+                <option value="">Selecione</option>                
+                <option value="EA" <%= IF((zz4_carreg=="EA"), "selected", "")%> >EXP Aereo</option>                
+                <option value="EM" <%= IF((zz4_carreg=="EM"), "selected", "")%> >EXP Maritimo</option>                
+                <option value="MI" <%= IF((zz4_carreg=="MI"), "selected", "")%> >Mercado Interno</option>                
+            </select>
+          </div>
+         <label for="zz4_destin" class="col-sm-1 control-label">Destino</label>
+          <div class="col-sm-2 zz4_destin">
+            <select class="form-control" id="zz4_destin" name="zz4_destin">
+                <option value="">Selecione</option>                
+                <option value="EUR" <%= IF((zz4_destin=="EUR"), "selected", "")%> >Europa</option>                
+                <option value="EUA" <%= IF((zz4_destin=="EUA"), "selected", "")%> >E.U.A</option>                
+                <option value="MI"  <%= IF((zz4_destin=="MI".OR.zz4_destin==".MI"), "selected", "")%> >MI</option>                
+            </select>
+          </div>
+     </div>
+     
+     <% cQuery:="select * from "+retSqlName("SA1")+" SA1 "
+	    cQuery+="where SA1.D_E_L_E_T_ <> '*' " 
+	 
+	    TCQUERY cQuery NEW ALIAS "XZ9"							       
+		dbselectarea("XZ9")
+	 %> 
+     
+	 <div class="form-group">
+		<label for="zz4_client" class="col-sm-1 control-label">Cod. Cliente</label>
+          <div class="col-sm-4 zz4_client">
+            <select class="form-control" id="zz4_client" name="zz4_client">            	
+                <option value="" <%= IF((Alltrim(zz4_client)==""), "selected", "")%>>Selecione</option>                
+                <%while XZ9->(!EOF())%>
+                	<option value="<%=XZ9->A1_COD%>" <%= IF((zz4_client==Alltrim(XZ9->A1_COD)), "selected", "")%>><%=XZ9->A1_NREDUZ%></option>                
+                <%XZ9->(DBSkip())%>
+        		<%endDo%>               
+            </select>
+          </div>
+          <label for="zz4_motori" class="col-sm-1 control-label">Motorista</label>
+          <div class="col-sm-4">                        
+            <input type="text" class="form-control" name="zz4_motori" id="zz4_motori" maxlength="40" value="<%= zz4_motori%>">          
+          </div>
+	 </div>
+	 
+	 <% XZ9->(DBSkip())
+		("XZ9")->(DBCloseArea())
+	 
+	 	cQuery:="select * from "+retSqlName("SBM")+" SBM "
+	    cQuery+="where SBM.D_E_L_E_T_ <> '*' " 
+	 
+	    TCQUERY cQuery NEW ALIAS "XZ8"							       
+		dbselectarea("XZ8")
+	 %> 
+     <div class="form-group">
+		<label for="zz4_fruta" class="col-sm-1 control-label">Fruta</label>
+          <div class="col-sm-4 zz4_fruta">
+            <select class="form-control" id="zz4_fruta" name="zz4_fruta">            	
+                <option value="" <%= IF((Alltrim(zz4_fruta)==""), "selected", "")%>>Selecione</option>                
+                <%while XZ8->(!EOF())%>
+                	<option value="<%=XZ8->BM_GRUPO%>" <%= IF((zz4_fruta==Alltrim(XZ8->BM_GRUPO)), "selected", "")%>><%=XZ8->BM_DESC%></option>                
+                <%XZ8->(DBSkip())%>
+        		<%endDo%>               
+            </select>
+          </div>
+          <label for="zz4_cavalo" class="col-sm-1 control-label">Cavalo</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_cavalo" id="zz4_cavalo" maxlength="8" value="<%= zz4_cavalo%>">          
+          </div>
+          <label for="zz4_carret" class="col-sm-1 control-label">Carreta</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_carret" id="zz4_carret" maxlength="8" value="<%= zz4_carret%>">          
+          </div>
+      </div>
+      
+     <% XZ8->(DBSkip())
+		("XZ8")->(DBCloseArea())	
+     %>
+      
+      <div class="form-group">
+          <label for="zz4_contai" class="col-sm-1 control-label">Container</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_contai" id="zz4_contai" maxlength="40" value="<%= zz4_contai%>">          
+          </div>
+          <label for="zz4_genset" class="col-sm-1 control-label">GENSET</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_genset" id="zz4_genset" maxlength="11" value="<%= zz4_genset%>">          
+          </div>
+          <label for="zz4_nlacre" class="col-sm-1 control-label">Nº do Lacre</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_nlacre" id="zz4_nlacre" maxlength="14" value="<%= zz4_nlacre%>">          
+          </div>
+          <label for="zz4_ntermo" class="col-sm-1 control-label">Nº Termograf</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_ntermo" id="zz4_ntermo" maxlength="14" value="<%= zz4_ntermo%>">          
+          </div>
+      </div>
+         <div class="form-group">
+          <label for="zz4_porto" class="col-sm-2 control-label">Aeroporto/Porto</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_porto" id="zz4_porto" maxlength="30" value="<%= zz4_porto%>">          
+          </div>
+          <label for="zz4_ufemba" class="col-sm-1 control-label">UF Embarque</label>
+          <div class="col-sm-1">
+            <select class="form-control" id="zz4_ufemba" name="zz4_ufemba">
+                <option value="">UF</option>
+                {BLC_SEGMENTO}
+                <option value="AC" <%= IF((zz4_ufemba=="AC"), "selected", "")%>>AC</option>
+                <option value="AL" <%= IF((zz4_ufemba=="AL"), "selected", "")%>>AL</option>
+                <option value="AP" <%= IF((zz4_ufemba=="AP"), "selected", "")%>>AP</option>
+                <option value="AM" <%= IF((zz4_ufemba=="AM"), "selected", "")%>>AM</option>
+                <option value="BA" <%= IF((zz4_ufemba=="BA"), "selected", "")%>>BA</option>
+                <option value="CE" <%= IF((zz4_ufemba=="CE"), "selected", "")%>>CE</option>
+                <option value="DF" <%= IF((zz4_ufemba=="DF"), "selected", "")%>>DF</option>
+                <option value="ES" <%= IF((zz4_ufemba=="ES"), "selected", "")%>>ES</option>
+                <option value="GO" <%= IF((zz4_ufemba=="GO"), "selected", "")%>>GO</option>
+                <option value="MA" <%= IF((zz4_ufemba=="MA"), "selected", "")%>>MA</option>  
+                <option value="MT" <%= IF((zz4_ufemba=="MT"), "selected", "")%>>MT</option>
+                <option value="MS" <%= IF((zz4_ufemba=="MS"), "selected", "")%>>MS</option>
+                <option value="MG" <%= IF((zz4_ufemba=="MG"), "selected", "")%>>MG</option>
+                <option value="PR" <%= IF((zz4_ufemba=="PR"), "selected", "")%>>PR</option>
+                <option value="PB" <%= IF((zz4_ufemba=="PB"), "selected", "")%>>PB</option>  
+                <option value="PA" <%= IF((zz4_ufemba=="PA"), "selected", "")%>>PA</option>
+                <option value="PE" <%= IF((zz4_ufemba=="PE"), "selected", "")%>>PE</option>
+                <option value="PI" <%= IF((zz4_ufemba=="PI"), "selected", "")%>>PI</option>
+                <option value="RJ" <%= IF((zz4_ufemba=="RJ"), "selected", "")%>>RJ</option>
+                <option value="RN" <%= IF((zz4_ufemba=="RN"), "selected", "")%>>RN</option>
+                <option value="RS" <%= IF((zz4_ufemba=="RS"), "selected", "")%>>RS</option>  
+                <option value="RO" <%= IF((zz4_ufemba=="RO"), "selected", "")%>>RO</option>                  
+                <option value="RR" <%= IF((zz4_ufemba=="RR"), "selected", "")%>>RR</option>
+                <option value="SC" <%= IF((zz4_ufemba=="SC"), "selected", "")%>>SC</option>
+                <option value="SE" <%= IF((zz4_ufemba=="SE"), "selected", "")%>>SE</option>
+                <option value="SP" <%= IF((zz4_ufemba=="SP"), "selected", "")%>>SP</option>  
+                <option value="TO" <%= IF((zz4_ufemba=="TO"), "selected", "")%>>TO</option>
+                {/BLC_SEGMENTO}
+            </select>
+          </div>
+          <label for="zz4_npterm" class="col-sm-2 control-label">Pallet/Termo</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_npterm" id="zz4_npterm" maxlength="13" value="<%= zz4_npterm%>" onkeypress ="autoTab(this, event);">          
+          </div>
+          <label for="zz4_termper" class="col-sm-1 control-label">Temeratura</label>
+          <div class="col-sm-1">                        
+              <input type="text" class="form-control" name="zz4_termper" id="zz4_termper" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_termper%>">          
+          </div>     
+         </div>
+         <div class="form-group">
+          <label for="zz4_dsaida" class="col-sm-1 control-label">Data Saída</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_dsaida" id="zz4_dsaida" onfocus="dataAtual()" value="<%= STOD(zz4_dsaida)%>">          
+          </div> 
+          <label for="zz4_horas" class="col-sm-1 control-label">Hora\Saída</label>
+          <div class="col-sm-2">                        
+              <input type="text" class="form-control" name="zz4_horas" id="zz4_horas" onfocus="horaAtual()" value="<%= zz4_horas%>">          
+          </div>
+         </div>
+         <div class="col-sm-12">
+         <a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Lançamentos
+         </a>
+        <div class="collapse" id="collapseExample">
+          <div class="well">
+              <div class="form-group">
+              		<div class="<%= cP1Erro %>">	
+	                     <label for="zz4_p1" class="col-sm-1 control-label">Pallet 01</label>
+	                      <div class="col-sm-2 zz4_p1">                        
+	                          <input type="text" class="form-control" name="zz4_p1" id="zz4_p1" maxlength="13" value="<%= zz4_p1%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t1" class="col-sm-1 control-label">Temp1</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t1" id="zz4_t1" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t1%>">          
+                      </div> 
+                      	<div class="<%= cP2Erro %>">             
+		                     <label for="zz4_p2" class="col-sm-1 control-label">Pallet 02</label>
+		                      <div class="col-sm-2 zz4_p2">                        
+		                          <input type="text" class="form-control" name="zz4_p2" id="zz4_p2" maxlength="13" value="<%= zz4_p2%>" onkeypress ="autoTab(this, event);">          
+		                      </div>
+		                </div>  
+                      <label for="zz4_t2" class="col-sm-1 control-label">Temp2</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t2" id="zz4_t2" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t2%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP3Erro %>">                  	
+	                     <label for="zz4_p3" class="col-sm-1 control-label">Pallet 03</label>
+	                      <div class="col-sm-2 zz4_p3">                        
+	                          <input type="text" class="form-control" name="zz4_p3" id="zz4_p3" maxlength="13" value="<%= zz4_p3%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div> 
+                      <label for="zz4_t3" class="col-sm-1 control-label">Temp3</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t3" id="zz4_t3" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t3%>">          
+                      </div>  
+                      	<div class="<%= cP4Erro %>">		            
+		                     <label for="zz4_p4" class="col-sm-1 control-label">Pallet 04</label>
+		                      <div class="col-sm-2 zz4_p4">                        
+		                          <input type="text" class="form-control" name="zz4_p4" id="zz4_p4" maxlength="13" value="<%= zz4_p4%>" onkeypress ="autoTab(this, event);">          
+		                      </div> 
+		                </div>
+                      <label for="zz4_t4" class="col-sm-1 control-label">Temp4</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t4" id="zz4_t4" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t4%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP5Erro %>">
+	                     <label for="zz4_p5" class="col-sm-1 control-label">Pallet 05</label>
+	                      <div class="col-sm-2 zz4_p5">                        
+	                          <input type="text" class="form-control" name="zz4_p5" id="zz4_p5" maxlength="13" value="<%= zz4_p5%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t5" class="col-sm-1 control-label">Temp5</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t5" id="zz4_t5" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t5%>">          
+                      </div>  
+                      <div class="<%= cP6Erro %>">            
+	                     <label for="zz4_p6" class="col-sm-1 control-label">Pallet 06</label>
+	                      <div class="col-sm-2 zz4_p6">                        
+	                          <input type="text" class="form-control" name="zz4_p6" id="zz4_p6" maxlength="13" value="<%= zz4_p6%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t6" class="col-sm-1 control-label">Temp6</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t6" id="zz4_t6" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t6%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP7Erro %>">
+	                     <label for="zz4_p7" class="col-sm-1 control-label">Pallet 07</label>
+	                      <div class="col-sm-2 zz4_p7">                        
+	                          <input type="text" class="form-control" name="zz4_p7" id="zz4_p7" maxlength="13" value="<%= zz4_p7%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t7" class="col-sm-1 control-label">Temp7</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t7" id="zz4_t7" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t7%>">          
+                      </div>  
+                      <div class="<%= cP8Erro %>">            
+	                     <label for="zz4_p8" class="col-sm-1 control-label">Pallet 08</label>
+	                      <div class="col-sm-2 zz4_p8">                        
+	                          <input type="text" class="form-control" name="zz4_p8" id="zz4_p8" maxlength="13" value="<%= zz4_p8%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t8" class="col-sm-1 control-label">Temp8</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t8" id="zz4_t8" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t8%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP9Erro %>">
+	                     <label for="zz4_p9" class="col-sm-1 control-label">Pallet 09</label>
+	                      <div class="col-sm-2 zz4_p9">                        
+	                          <input type="text" class="form-control" name="zz4_p9" id="zz4_p9" maxlength="13" value="<%= zz4_p9%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t9" class="col-sm-1 control-label">Temp9</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t9" id="zz4_t9" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t9%>">          
+                      </div>
+                    <div class="<%= cP10Erro %>">              
+	                     <label for="zz4_p10" class="col-sm-1 control-label">Pallet 10</label>
+	                      <div class="col-sm-2 zz4_p10">                        
+	                          <input type="text" class="form-control" name="zz4_p10" id="zz4_p10" maxlength="13" value="<%= zz4_p10%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+	                      <label for="zz4_t10" class="col-sm-1 control-label">Temp10</label>
+	                      <div class="col-sm-1">                        
+	                          <input type="number" class="form-control" name="zz4_t10" id="zz4_t10" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t10%>">          
+	                      </div>  
+                 </div>
+                 <div class="form-group">
+	                <div class="<%= cP11Erro %>">
+	                     <label for="zz4_p11" class="col-sm-1 control-label">Pallet 11</label>
+	                      <div class="col-sm-2 zz4_p11">                        
+	                          <input type="text" class="form-control" name="zz4_p11" id="zz4_p11" maxlength="13" value="<%= zz4_p11%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t11" class="col-sm-1 control-label">Temp11</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t11" id="zz4_t11" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t11%>">          
+                      </div>  
+                    <div class="<%= cP12Erro %>">              
+	                     <label for="zz4_p12" class="col-sm-1 control-label">Pallet 12</label>
+	                      <div class="col-sm-2 zz4_p12">                        
+	                          <input type="text" class="form-control" name="zz4_p12" id="zz4_p12" maxlength="13" value="<%= zz4_p12%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t12" class="col-sm-1 control-label">Temp12</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t12" id="zz4_t12" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t12%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP13Erro %>">
+	                     <label for="zz4_p13" class="col-sm-1 control-label">Pallet 13</label>
+	                      <div class="col-sm-2 zz4_p13">                        
+	                          <input type="text" class="form-control" name="zz4_p13" id="zz4_p13" maxlength="13" value="<%= zz4_p13%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t13" class="col-sm-1 control-label">Temp13</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t13" id="zz4_t13" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t13%>">          
+                      </div>   
+                     <div class="<%= cP14Erro %>">           
+	                     <label for="zz4_p14" class="col-sm-1 control-label">Pallet 14</label>
+	                      <div class="col-sm-2 zz4_p14">                        
+	                          <input type="text" class="form-control" name="zz4_p14" id="zz4_p14" maxlength="13" value="<%= zz4_p14%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                 </div>
+                      <label for="zz4_t14" class="col-sm-1 control-label">Temp14</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t14" id="zz4_t14" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t14%>" >          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP15Erro %>">
+	                     <label for="zz4_p15" class="col-sm-1 control-label">Pallet 15</label>
+	                      <div class="col-sm-2 zz4_p15">                        
+	                          <input type="text" class="form-control" name="zz4_p15" id="zz4_p15" maxlength="13" value="<%= zz4_p15%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t15" class="col-sm-1 control-label">Temp15</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t15" id="zz4_t15" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t15%>">          
+                      </div> 
+                    <div class="<%= cP16Erro %>">             
+	                     <label for="zz4_p16" class="col-sm-1 control-label">Pallet 16</label>
+	                      <div class="col-sm-2 zz4_p16">                        
+	                          <input type="text" class="form-control" name="zz4_p16" id="zz4_p16" maxlength="13" value="<%= zz4_p16%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t16" class="col-sm-1 control-label">Temp16</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t16" id="zz4_t16" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t16%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP17Erro %>">
+	                     <label for="zz4_p17" class="col-sm-1 control-label">Pallet 17</label>
+	                      <div class="col-sm-2 zz4_p17">                        
+	                          <input type="text" class="form-control" name="zz4_p17" id="zz4_p17" maxlength="13" value="<%= zz4_p17%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t17" class="col-sm-1 control-label">Temp17</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t17" id="zz4_t17" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t17%>">          
+                      </div>  
+                     <div class="<%= cP18Erro %>">            
+	                     <label for="zz4_p18" class="col-sm-1 control-label">Pallet 18</label>
+	                      <div class="col-sm-2 zz4_p18">                        
+	                          <input type="text" class="form-control" name="zz4_p18" id="zz4_p18" maxlength="13" value="<%= zz4_p18%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                 </div>
+                      <label for="zz4_t18" class="col-sm-1 control-label">Temp18</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t18" id="zz4_t18" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t18%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP19Erro %>">
+	                     <label for="zz4_p19" class="col-sm-1 control-label">Pallet 19</label>
+	                      <div class="col-sm-2 zz4_p19">                        
+	                          <input type="text" class="form-control" name="zz4_p19" id="zz4_p19" maxlength="13" value="<%= zz4_p19%>" onkeypress ="autoTab(this, event);">          
+	                      </div>
+	                </div> 
+                      <label for="zz4_t19" class="col-sm-1 control-label">Temp19</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t19" id="zz4_t19" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t19%>">          
+                      </div>
+                     <div class="<%= cP20Erro %>">              
+	                     <label for="zz4_p20" class="col-sm-1 control-label">Pallet 20</label>
+	                      <div class="col-sm-2 zz4_p20">                        
+	                          <input type="text" class="form-control" name="zz4_p20" id="zz4_p20" maxlength="13" value="<%= zz4_p20%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t20" class="col-sm-1 control-label">Temp20</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t20" id="zz4_t20" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t20%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP21Erro %>">
+	                     <label for="zz4_p21" class="col-sm-1 control-label">Pallet 21</label>
+	                      <div class="col-sm-2 zz4_p21">                        
+	                          <input type="text" class="form-control" name="zz4_p21" id="zz4_p21" maxlength="13" value="<%= zz4_p21%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t21" class="col-sm-1 control-label">Temp21</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t21" id="zz4_t21" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t21%>">          
+                      </div> 
+                      <div class="<%= cP22Erro %>">             
+	                     <label for="zz4_p22" class="col-sm-1 control-label">Pallet 22</label>
+	                      <div class="col-sm-2 zz4_p22">                        
+	                          <input type="text" class="form-control" name="zz4_p22" id="zz4_p22" maxlength="13" value="<%= zz4_p22%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t22" class="col-sm-1 control-label">Temp22</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t22" id="zz4_t22" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t22%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP23Erro %>">
+	                     <label for="zz4_p23" class="col-sm-1 control-label">Pallet 23</label>
+	                      <div class="col-sm-2 zz4_p23">                        
+	                          <input type="text" class="form-control" name="zz4_p23" id="zz4_p23" maxlength="13" value="<%= zz4_p23%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t23" class="col-sm-1 control-label">Temp23</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t23" id="zz4_t23" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t23%>">          
+                      </div> 
+                      <div class="<%= cP24Erro %>">             
+	                     <label for="zz4_p24" class="col-sm-1 control-label">Pallet 24</label>
+	                      <div class="col-sm-2 zz4_p24">                        
+	                          <input type="text" class="form-control" name="zz4_p24" id="zz4_p24" maxlength="13" value="<%= zz4_p24%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t24" class="col-sm-1 control-label">Temp24</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t24" id="zz4_t24" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t24%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP25Erro %>">
+	                     <label for="zz4_p25" class="col-sm-1 control-label">Pallet 25</label>
+	                      <div class="col-sm-2 zz4_p25">                        
+	                          <input type="text" class="form-control" name="zz4_p25" id="zz4_p25" maxlength="13" value="<%= zz4_p25%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t25" class="col-sm-1 control-label">Temp25</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t25" id="zz4_t25" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t25%>">          
+                      </div> 
+                      <div class="<%= cP26Erro %>">             
+	                     <label for="zz4_p26" class="col-sm-1 control-label">Pallet 26</label>
+	                      <div class="col-sm-2 zz4_p26">                        
+	                          <input type="text" class="form-control" name="zz4_p26" id="zz4_p26" maxlength="13" value="<%= zz4_p26%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t26" class="col-sm-1 control-label">Temp26</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t26" id="zz4_t26" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t26%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP27Erro %>">
+	                     <label for="zz4_p27" class="col-sm-1 control-label">Pallet 27</label>
+	                      <div class="col-sm-2 zz4_p27">                        
+	                          <input type="text" class="form-control" name="zz4_p27" id="zz4_p27" maxlength="13" value="<%= zz4_p27%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t27" class="col-sm-1 control-label">Temp27</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t27" id="zz4_t27" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t27%>">          
+                      </div>
+                     <div class="<%= cP28Erro %>">               
+	                     <label for="zz4_p28" class="col-sm-1 control-label">Pallet 28</label>
+	                      <div class="col-sm-2 zz4_p28">                        
+	                          <input type="text" class="form-control" name="zz4_p28" id="zz4_p28" maxlength="13" value="<%= zz4_p28%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                 </div>
+                      <label for="zz4_t28" class="col-sm-1 control-label">Temp28</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t28" id="zz4_t28" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t28%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	 <div class="<%= cP29Erro %>">
+	                     <label for="zz4_p29" class="col-sm-1 control-label">Pallet 29</label>
+	                      <div class="col-sm-2 zz4_p29">                        
+	                          <input type="text" class="form-control" name="zz4_p29" id="zz4_p29" maxlength="13" value="<%= zz4_p29%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                 </div>
+                      <label for="zz4_t29" class="col-sm-1 control-label">Temp29</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t29" id="zz4_t29" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t29%>">          
+                      </div> 
+                      <div class="<%= cP30Erro %>">             
+	                     <label for="zz4_p30" class="col-sm-1 control-label">Pallet 30</label>
+	                      <div class="col-sm-2 zz4_p30">                        
+	                          <input type="text" class="form-control" name="zz4_p30" id="zz4_p30" maxlength="13" value="<%= zz4_p30%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t30" class="col-sm-1 control-label">Temp30</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t30" id="zz4_t30" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t30%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	 <div class="<%= cP31Erro %>">
+	                     <label for="zz4_p31" class="col-sm-1 control-label">Pallet 31</label>
+	                      <div class="col-sm-2 zz4_p31">                        
+	                          <input type="text" class="form-control" name="zz4_p31" id="zz4_p31" maxlength="13" value="<%= zz4_p31%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t31" class="col-sm-1 control-label">Temp31</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t31" id="zz4_t31" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t31%>">          
+                      </div>  
+                      	<div class="<%= cP32Erro %>">            
+		                     <label for="zz4_p32" class="col-sm-1 control-label">Pallet 32</label>
+		                      <div class="col-sm-2 zz4_p32">                        
+		                          <input type="text" class="form-control" name="zz4_p32" id="zz4_p32" maxlength="13" value="<%= zz4_p32%>" onkeypress ="autoTab(this, event);">          
+		                      </div> 
+		                </div>
+                      <label for="zz4_t32" class="col-sm-1 control-label">Temp32</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t32" id="zz4_t32" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t32%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP33Erro %>">
+	                     <label for="zz4_p33" class="col-sm-1 control-label">Pallet 33</label>
+	                      <div class="col-sm-2 zz4_p33">                        
+	                          <input type="text" class="form-control" name="zz4_p33" id="zz4_p33" maxlength="13" value="<%= zz4_p33%>" onkeypress ="autoTab(this, event);">          
+	                      </div>
+	                  </div> 
+                      <label for="zz4_t33" class="col-sm-1 control-label">Temp33</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t33" id="zz4_t33" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t33%>">          
+                      </div> 
+                      <div class="<%= cP34Erro %>">             
+	                     <label for="zz4_p34" class="col-sm-1 control-label">Pallet 34</label>
+	                      <div class="col-sm-2 zz4_p34">                        
+	                          <input type="text" class="form-control" name="zz4_p34" id="zz4_p34" maxlength="13" value="<%= zz4_p34%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t34" class="col-sm-1 control-label">Temp34</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t34" id="zz4_t34" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t34%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP35Erro %>">
+	                     <label for="zz4_p35" class="col-sm-1 control-label">Pallet 35</label>
+	                      <div class="col-sm-2 zz4_p35">                        
+	                          <input type="text" class="form-control" name="zz4_p35" id="zz4_p35" maxlength="13" value="<%= zz4_p35%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t35" class="col-sm-1 control-label">Temp35</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t35" id="zz4_t35" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t35%>">          
+                      </div>  
+                      <div class="<%= cP36Erro %>">            
+	                     <label for="zz4_p36" class="col-sm-1 control-label">Pallet 36</label>
+	                      <div class="col-sm-2 zz4_p36">                        
+	                          <input type="text" class="form-control" name="zz4_p36" id="zz4_p36" maxlength="13" value="<%= zz4_p36%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t36" class="col-sm-1 control-label">Temp36</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t36" id="zz4_t36" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t36%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP37Erro %>">
+	                     <label for="zz4_p37" class="col-sm-1 control-label">Pallet 37</label>
+	                      <div class="col-sm-2 zz4_p37">                        
+	                          <input type="text" class="form-control" name="zz4_p37" id="zz4_p37" maxlength="13" value="<%= zz4_p37%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t37" class="col-sm-1 control-label">Temp37</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t37" id="zz4_t37" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t37%>">          
+                      </div>  
+                      <div class="<%= cP38Erro %>">            
+	                     <label for="zz4_p38" class="col-sm-1 control-label">Pallet 38</label>
+	                      <div class="col-sm-2 zz4_p38">                        
+	                          <input type="text" class="form-control" name="zz4_p38" id="zz4_p38" maxlength="13" value="<%= zz4_p38%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t38" class="col-sm-1 control-label">Temp38</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t38" id="zz4_t38" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t38%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	 <div class="<%= cP39Erro %>">                 	 
+	                     <label for="zz4_p39" class="col-sm-1 control-label">Pallet 39</label>
+	                      <div class="col-sm-2 zz4_p39">                        
+	                          <input type="text" class="form-control" name="zz4_p39" id="zz4_p39" maxlength="13" value="<%= zz4_p39%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t39" class="col-sm-1 control-label">Temp39</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t39" id="zz4_t39" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t39%>">          
+                      </div>   
+                      <div class="<%= cP40Erro %>">           
+	                     <label for="zz4_p40" class="col-sm-1 control-label">Pallet 40</label>
+	                      <div class="col-sm-2 zz4_p40">                        
+	                          <input type="text" class="form-control" name="zz4_p40" id="zz4_p40" maxlength="13" value="<%= zz4_p40%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t40" class="col-sm-1 control-label">Temp40</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t40" id="zz4_t40" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t40%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                      <div class="<%= cP41Erro %>">
+	                     <label for="zz4_p41" class="col-sm-1 control-label">Pallet 41</label>
+	                      <div class="col-sm-2 zz4_p41">                        
+	                          <input type="text" class="form-control" name="zz4_p41" id="zz4_p41" maxlength="13" value="<%= zz4_p41%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t41" class="col-sm-1 control-label">Temp41</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t41" id="zz4_t41" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t41%>">          
+                      </div>  
+                      <div class="<%= cP42Erro %>">            
+	                     <label for="zz4_p42" class="col-sm-1 control-label">Pallet 42</label>
+	                      <div class="col-sm-2 zz4_p42">                        
+	                          <input type="text" class="form-control" name="zz4_p42" id="zz4_p42" maxlength="13" value="<%= zz4_p42%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t42" class="col-sm-1 control-label">Temp42</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t42" id="zz4_t42" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t42%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	<div class="<%= cP43Erro %>"> 
+	                     <label for="zz4_p43" class="col-sm-1 control-label">Pallet 43</label>
+	                      <div class="col-sm-2 zz4_p43">                        
+	                          <input type="text" class="form-control" name="zz4_p43" id="zz4_p43" maxlength="13" value="<%= zz4_p43%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                </div>
+                      <label for="zz4_t43" class="col-sm-1 control-label">Temp43</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t43" id="zz4_t43" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t43%>">          
+                      </div>
+                      <div class="<%= cP44Erro %>">               
+	                     <label for="zz4_p44" class="col-sm-1 control-label">Pallet 44</label>
+	                      <div class="col-sm-2 zz4_p44">                        
+	                          <input type="text" class="form-control" name="zz4_p44" id="zz4_p44" maxlength="13" value="<%= zz4_p44%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t44" class="col-sm-1 control-label">Temp44</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t44" id="zz4_t44" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t44%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	  <div class="<%= cP45Erro %>"> 
+	                     <label for="zz4_p45" class="col-sm-1 control-label">Pallet 45</label>
+	                      <div class="col-sm-2 zz4_p45">                        
+	                          <input type="text" class="form-control" name="zz4_p45" id="zz4_p45" maxlength="13" value="<%= zz4_p45%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t45" class="col-sm-1 control-label">Temp45</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t45" id="zz4_t45" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t45%>">          
+                      </div>  
+                      <div class="<%= cP46Erro %>">             
+	                     <label for="zz4_p46" class="col-sm-1 control-label">Pallet 46</label>
+	                      <div class="col-sm-2 zz4_p46">                        
+	                          <input type="text" class="form-control" name="zz4_p46" id="zz4_p46" maxlength="13" value="<%= zz4_p46%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t46" class="col-sm-1 control-label">Temp46</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t46" id="zz4_t46" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t46%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	 <div class="<%= cP47Erro %>"> 
+	                     <label for="zz4_p47" class="col-sm-1 control-label">Pallet 47</label>
+	                      <div class="col-sm-2 zz4_p47">                        
+	                          <input type="text" class="form-control" name="zz4_p47" id="zz4_p47" maxlength="13" value="<%= zz4_p47%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                 </div> 
+                      <label for="zz4_t47" class="col-sm-1 control-label">Temp47</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t47" id="zz4_t47" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t47%>">          
+                      </div>
+                      <div class="<%= cP48Erro %>">               
+	                     <label for="zz4_p48" class="col-sm-1 control-label">Pallet 48</label>
+	                      <div class="col-sm-2 zz4_p48">                        
+	                          <input type="text" class="form-control" name="zz4_p48" id="zz4_p48" maxlength="13" value="<%= zz4_p48%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t48" class="col-sm-1 control-label">Temp48</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t48" id="zz4_t48" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t48%>">          
+                      </div>  
+                 </div>
+                 <div class="form-group">
+                 	 <div class="<%= cP49Erro %>"> 
+	                     <label for="zz4_p49" class="col-sm-1 control-label">Pallet 49</label>
+	                      <div class="col-sm-2 zz4_p49">                        
+	                          <input type="text" class="form-control" name="zz4_p49" id="zz4_p49" maxlength="13" value="<%= zz4_p49%>" onkeypress ="autoTab(this, event);">          
+	                      </div>
+	                 </div> 
+                      <label for="zz4_t49" class="col-sm-1 control-label">Temp49</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t49" id="zz4_t49" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t49%>">          
+                      </div>  
+                      <div class="<%= cP50Erro %>">             
+	                     <label for="zz4_p50" class="col-sm-1 control-label">Pallet 50</label>
+	                      <div class="col-sm-2 zz4_p50">                        
+	                          <input type="text" class="form-control" name="zz4_p50" id="zz4_p50" maxlength="13" value="<%= zz4_p50%>" onkeypress ="autoTab(this, event);">          
+	                      </div> 
+	                  </div>
+                      <label for="zz4_t50" class="col-sm-1 control-label">Temp50</label>
+                      <div class="col-sm-1">                        
+                          <input type="number" class="form-control" name="zz4_t50" id="zz4_t50" maxlength="4" onkeypress ="autoTab(this, event);" value="<%= zz4_t50%>">          
+                      </div>  
+                 </div>
+          </div>
+        </div>
+        </div>        
+        <div class="col-sm-offset-1  col-sm-11">	
+			<button type="submit" name="salvar_cambio" class="btn btn-primary"> <i class="glyphicon glyphicon-ok"></i> Salvar</button>
+            <a type="button" href="U_F003EXP.apw?cnembar=<%= zz4_nembar %>&cTIPEM=<%= zz4_carreg %>" <%= if((cancelar='0'),"","disabled") %>  class="btn btn-default">Cancelar</a>
+		</div>  
+		
+     </form>
+   </div>
+		<%
+        	  RESET ENVIRONMENT
+        %> 
+ </div>
+    
+    <script src='JS/jquery-1.11.0.js'></script>
+    <script src='JS/plugins/jquery.validate.js' type='text/javascript'></script>
+    <script src='JS/plugins/jquery.maskedinput.js' type='text/javascript'></script>
+    <script src='JS/bootstrap.js' type='text/javascript'></script>
+    <script src='JS/plugins/select2/select2.min.js' type='text/javascript'></script>
+    <script type="text/javascript"> 
+		jQuery(function($){		   			   
+		   $("#zz4_carret").mask("aaa-9999",{"placeholder": ""});
+		   $("#zz4_cavalo").mask("aaa-9999",{"placeholder": ""});		   
+		   $("#zz4_dsaida").mask("99/99/9999",{"placeholder": ""});
+		});
+	</script> 	
+	<script type="text/javascript">
+	function dataAtual(){ 
+		data = new Date();
+		datasaida = $('#zz4_dsaida').val();	
+		var dia = data.getDate();
+		dia = (dia.toString().length == 1)?'0'+dia:dia;
+		var mes = data.getMonth() + 1;
+		mes = (mes.toString().length == 1)?'0'+mes:mes;
+		   if (datasaida == '') {
+			document.getElementById('zz4_dsaida').value = dia +'/'+mes+'/'+data.getFullYear(); 
+		   }
+		
+	} 	
+	function horaAtual(){ 
+		data = new Date();
+		horasaida = $('#zz4_horas').val();	
+		var hora = data.getHours();
+		hora = (hora.toString().length == 1)?'0'+hora:hora;
+		var minuto = data.getMinutes();
+		minuto = (minuto.toString().length == 1)?'0'+minuto:minuto;
+		   if (horasaida == '') {
+			document.getElementById('zz4_horas').value = hora +':'+minuto;; 
+		   }
+		
+	}  
+	</script> 	
+    <script type="text/javascript">
+		
+
+		$( document ).ready( function () {
+			$( "#signupForm" ).validate( {
+				rules: {
+					zz4_nembar: {
+					 required: true,					 
+					 embar:   true
+					 },
+					zz4_destin: "required",
+					zz4_fruta:  "required",
+					zz4_carreg: "required",
+					zz4_client: "required",
+					zz4_p1: {
+					            unique: true,
+					            minlength: 13
+					        },
+					zz4_p2: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p3: {                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p4: {                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p5: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p6: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p7: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p8: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p9: {                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p10:{                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p11:{                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p12:{                 
+					            unique: true, 
+					            minlength: 13 
+					        },                
+					zz4_p13:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p14:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p15:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p16:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p17:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p18:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p19:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p20:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p21:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p22:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p23:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p24:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p25:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p26:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p27:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p28:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p29:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p30:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p31:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p32:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p33:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p34:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p35:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p36:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p37:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p38:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p39:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p40:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p41:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p42:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p43:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p44:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p45:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p46:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p47:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p48:{                
+					            unique: true,
+					            minlength: 13
+					        },               
+					zz4_p49:{                
+					            unique: true,
+					            minlength: 13
+							},               		
+					zz4_p50:{                
+					            unique: true,
+					            minlength: 13
+							}
+																								
+				},
+				messages: {
+					zz4_nembar: {
+					required: "Informe o  Número de Embarque",					
+					embar: "Número  de Embarque inválido"
+					},
+					zz4_destin: "Selecione o  destino",
+					zz4_fruta:  "Selecione a  Fruta",
+					zz4_carreg:  "Selecione o  Carregamento",
+					zz4_client:  "Selecione o  Cliente",
+					zz4_p1: {
+					 			unique:    "Pallet já informado",
+					 			minlength: "Número  do pallet incompleto"
+					 		},
+					zz4_p2: {                                            
+					        	unique:    "Pallet já informado",        
+					        	minlength: "Número  do pallet incompleto"
+					        },                                           
+					zz4_p3: {                                            
+					        	unique:    "Pallet já informado",        
+					        	minlength: "Número  do pallet incompleto"
+					        },                                           
+					zz4_p4: {                                            
+					        	unique:    "Pallet já informado",        
+					        	minlength: "Número  do pallet incompleto"
+					        },                                           
+					zz4_p5: {                                            
+					        	unique:    "Pallet já informado",        
+					        	minlength: "Número  do pallet incompleto"
+					        },                                           
+					zz4_p6: {                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p7: {                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p8: {                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p9: {                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p10:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p11:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p12:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p13:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p14:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p15:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p16:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p17:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p18:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p19:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p20:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p21:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p22:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p23:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p24:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p25:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p26:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p27:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p28:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p29:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p30:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p31:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p32:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p33:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p34:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p35:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p36:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p37:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p38:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p39:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p40:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p41:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p42:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p43:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p44:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p45:{                                               
+					        	unique:    "Pallet já informado",           
+					        	minlength: "Número  do pallet incompleto"   
+					        },                                              
+					zz4_p46:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p47:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p48:{                                             
+					        	unique:    "Pallet já informado",         
+					        	minlength: "Número  do pallet incompleto" 
+					        },                                            
+					zz4_p49:{                                            
+					        	unique:    "Pallet já informado",        
+					        	minlength: "Número  do pallet incompleto"
+					        },                                           
+					zz4_p50:{                                            
+					        	unique:    "Pallet já informado",        
+					        	
+					        	minlength: "Número  do pallet incompleto"
+					 		}                                           
+				},
+				errorElement: "span",
+				errorPlacement: function ( error, element ) {
+					// Add the `help-block` class to the error element
+					error.addClass( "help-block" );
+
+					if ( element.prop( "type" ) === "checkbox" ) {
+						error.insertAfter( element.parent( "label" ) );
+					} else {
+						error.insertAfter( element );
+					}
+				},
+				highlight: function ( element, errorClass, validClass ) {
+					$( element ).parents( ".zz4_nembar" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_destin" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_fruta" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_carreg" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p1" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p2" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p3" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p4" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p5" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p6" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p7" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p8" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p9" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p10" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p11" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p12" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p13" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p14" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p15" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p16" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p17" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p18" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p19" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p20" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p21" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p22" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p23" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p24" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p25" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p26" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p27" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p28" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p29" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p30" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p31" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p32" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p33" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p34" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p35" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p36" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p37" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p38" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p39" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p40" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p41" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p42" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p43" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p44" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p45" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p46" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p47" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p48" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p49" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_p50" ).addClass( "has-error" ).removeClass( "has-success" ),
+					$( element ).parents( ".zz4_client" ).addClass( "has-error" ).removeClass( "has-success" );					
+				},
+				unhighlight: function (element, errorClass, validClass) {
+					$( element ).parents( ".zz4_nembar" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_destin" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_fruta" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_carreg" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p1" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p2" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p3" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p4" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p5" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p6" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p7" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p8" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p9" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p10" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p11" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p12" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p13" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p14" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p15" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p16" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p17" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p18" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p19" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p20" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p21" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p22" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p23" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p24" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p25" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p26" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p27" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p28" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p29" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p30" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p31" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p32" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p33" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p34" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p35" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p36" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p37" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p38" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p39" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p40" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p41" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p42" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p43" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p44" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p45" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p46" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p47" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p48" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p49" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_p50" ).addClass( "has-success" ).removeClass( "has-error" ),
+					$( element ).parents( ".zz4_client" ).addClass( "has-success" ).removeClass( "has-error" );					
+				}
+			} );
+			
+			jQuery.validator.addMethod( "unique", function(value, element) {
+				var parentForm = $(element).closest('.well');
+				var timeRepeated = 0;
+				if (value != '') {
+					$(parentForm.find(':text')).each(function () {
+						if ($(this).val() === value) {
+							timeRepeated++;
+						}
+					});
+				}
+				return timeRepeated === 1 || timeRepeated === 0;
+		
+			}, "* Duplicate");
+	
+			jQuery.validator.addMethod( "embar", function(value, element) {
+			    var EA = /[0-9]{4}[e-eE-E]{1}[a-aA-A]{1}[0-9]{4}/g;
+				var EM = /[0-9]{4}[e-eE-E]{1}[m-mM-M]{1}[0-9]{4}/g;
+				var MI = /[0-9]{4}[m-mM-M]{1}[i-iI-I]{1}[0-9]{4}/g;
+				ea = '';
+				em = '';
+				mi = '';
+				var embar;
+				embar = '';				
+				embar = $('#zz4_nembar').val()				
+			    var is_valid = false;
+			 
+			      if (EA.test(embar) || EM.test(embar) || MI.test(embar)) {
+					is_valid = true; 
+				  } else {
+					is_valid = false;
+				  }
+			   			 
+			   return this.optional( element ) || is_valid ;
+			 
+			}, "Informe um número de embarque válido." );
+
+			
+		} );
+	</script>
+    <script type="text/javascript">
+		function autoTab(input, e)  {   
+		  var ind = 0;  
+		  var isNN = (navigator.appName.indexOf("Netscape")!=-1);  
+		  var keyCode = (isNN) ? e.which : e.keyCode;   
+		  var nKeyCode = e.keyCode;   
+		  if(keyCode == 13){
+		  	e.preventDefault(e);   
+			if (!isNN) {window.event.keyCode = 0;} // evitar o beep  
+			ind = getIndex(input);  
+			if (input.form[ind].type == 'textarea') {  
+			  return;  
+			}  
+			ind++;  
+			input.form[ind].focus();   
+			if (input.form[ind].type == 'text') {  
+			  input.form[ind].select();   
+			}  
+		  } 
+		  
+		  function getIndex(input) {   
+			var index = -1, i = 0, found = false;   
+			while (i < input.form.length && index == -1)   
+			  if (input.form[i] == input) {  
+				index = i;  
+				  if (i < (input.form.length -1)) {  
+				   if (input.form[i+1].type == 'hidden') {  
+			   index++;   
+			 }  
+			 if (input.form[i+1].type == 'button' && input.form[i+1].id == 'tabstopfalse') {  
+			   index++;   
+			 }  
+		   }  
+			  }  
+			  else   
+		   i++;   
+			return index;   
+		  }  
+		}  
+		$('.well').on('keyup', 'input', function(event) {
+		  if (event.which == 13) {
+			var generico = $(".well").find('input:visible');
+			var indice = generico.index(event.target) + 0;
+			var seletor = $(generico[indice]).focus();
+	
+			if (seletor.length == 0) {
+			  event.target.focus();
+			}
+		  }
+		});
+    </script>
+    
+    <script>
+      $('.select2').select2({ placeholder : '' });
+      $('.select2-remote').select2({ data: [{id:'A', text:'A'}]});
+      $('button[data-select2-open]').click(function(){
+        $('#' + $(this).data('select2-open')).select2('open');
+      });
+    </script>
+    <script>
+		  //Select2
+           
+		  /* dropdown and filter select */
+		  var select = $('#zz4_fruta').select2();
+		  
+		  /* Select2 plugin as tagpicker */
+		  $("#tagPicker").select2({
+		    closeOnSelect:false
+		  });
+		  		
+		$(document).ready(function() {});
+	</script>
+	<script>
+		  //Select2
+           
+		  /* dropdown and filter select */
+		  var select = $('#zz4_client').select2();
+		  
+		  /* Select2 plugin as tagpicker */
+		  $("#tagPicker").select2({
+		    closeOnSelect:false
+		  });
+		  		
+		$(document).ready(function() {});
+	</script>
+	
+</body>
+</html>
