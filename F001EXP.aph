@@ -24,7 +24,7 @@
 	
 	zz4_nembar    := Alltrim(nembar)
 	zz4_carreg    := Alltrim(TIPEM)
-	zz4_destin    := ""
+	zz4_destin    := "TESTE"
 	zz4_client    := ""
 	zz4_descli    := ""
 	zz4_motori    := ""
