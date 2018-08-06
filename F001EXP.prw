@@ -17,7 +17,7 @@ User Function F001EXP()
 	Prepare environment empresa "01" filial "01" modulo "EEC"  
 	
 	
-	nembar      := HttpGet->cnembar
+	nembar      := HttpGet->cnembar21
 	TIPEM       := HttpGet->cTIPEM		
 	exclusao    := HttpGet->exc
 	cZZ4_ERRO   := .F.
